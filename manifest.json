@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "YouTube Assistant",
+  "version": "1.0",
+  "description": "An assistant for YouTube videos using Gemini AI.",
+  "icons": {
+    "48": "icon.png"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "https://www.youtube.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch?v=*"],
+      "js": ["content.js"],
+      "css": ["modal.css"]
+    }
+  ],
+  "web_accessible_resources": [
+    "icon.png"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png"
+  }
+}
